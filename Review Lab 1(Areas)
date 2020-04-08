@@ -1,0 +1,123 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+int main()
+{
+	int choice;
+	char teleport;
+	
+	float side, area;
+	float length, width;
+	float base, height, subarea;
+	float radius;
+	
+	while(1){
+	cout << "\n ---------------------------\n";
+	cout << "          MAIN MENU           ";
+	cout << "\n ---------------------------\n";
+	cout << " [1] Area of Square\n";
+	cout << " [2] Area of Rectangle\n";
+	cout << " [3] Area of Triange\n";
+	cout << " [4] Area of Circle\n";
+	cout << " [5] Exit\n";
+	cout << " ---------------------------\n";
+	cout << " Enter your choice: ";
+	cin >> choice;
+	
+	switch (choice)
+	{
+		case 1:
+			cout << "\n ---------------------------\n";
+			cout << "     [1] AREA OF SQUARE       \n";
+			cout << " ---------------------------\n";
+			cout << " Enter the sides of the square: ";
+			cin  >> side;
+			
+			area = pow(side, 2.0);
+			cout << "\n The area of " << side << " is " << area << " sq. units.\n" << endl;
+			system("pause");
+			system("cls");
+			main();
+			break;
+			
+		case 2:
+			cout << "\n ---------------------------\n";
+			cout << "    [1] AREA OF RECTANGLE    \n";
+			cout << " ---------------------------\n";
+			cout << " Enter the length and width: \n";
+			cout << " [a] Length : ";
+			cin  >> length;
+			cout << " [b] Width  : ";
+			cin  >> width;
+			
+			area = length*width;
+			cout << "\n The area of the rectangle is " << area << " sq. units.\n" << endl;
+			system("pause");
+			system("cls");
+			main();
+			break; 
+			
+		case 3:	
+			cout << "\n ---------------------------\n";
+			cout << "    [1] AREA OF TRIANGLE     \n";
+			cout << " ---------------------------\n";
+			cout << " Enter the base and height: \n";
+			cout << " [a] Base   : ";
+			cin  >> base;
+			cout << " [b] Height : ";
+			cin  >> height;
+			
+			subarea = base*height;
+			area = subarea*0.5;
+			cout << "\n The area of the triangle is " << area << " sq. units.\n" << endl;
+			system("pause");
+			system("cls");
+			main();
+			break;
+		
+		case 4: 
+			cout << "\n ---------------------------\n";
+			cout << "    [1] AREA OF CIRCLE     \n";
+			cout << " ---------------------------\n";
+			cout << " Enter the radius: ";
+			cin  >> radius;
+			
+			area = 3.14159265359*pow(radius, 2.0);
+			cout << "\n The area of the circle is " << area << " sq. units.\n" << endl;
+			system("pause");
+			system("cls");
+			main();
+			break;
+		case 5:
+			cout << "\n Thank you! :)\n";
+			exit(1);
+			break;
+		default:
+			cout << "\n Invalid Input!";
+			break;
+		
+	}
+	
+	cout << " Do you want to try again? (y/n): ";
+	cin >> teleport;
+	
+	if (teleport == 'Y' ||  teleport == 'y')
+	system("cls");
+	main();
+	if (teleport == 'N' || teleport == 'n')
+	exit(1);
+	else
+	{
+		cout << "\n Invalid Input! Choose again.";
+		cout << "Do you want to go back to main menu? (y/n): ";
+		cin >> teleport;
+		
+		if (teleport == 'Y' ||  teleport == 'y')
+		main();
+		else if (teleport == 'N' || teleport == 'n')
+		exit(1);	
+	}
+}
+	return 0;
+}
