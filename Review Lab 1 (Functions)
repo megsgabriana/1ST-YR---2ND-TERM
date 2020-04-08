@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstring>
+#include <cmath>
+#include <cstdlib>
+#include <iomanip>
+
+using namespace std;
+int main()
+{
+	//use floor or ceil to round up and down an inputted number
+	double number = 0.0;
+	int choice;
+	char teleport;
+	while(1)
+	{
+	cout << "\n ---------------------";
+	cout << "\n       MAIN MENU      ";
+	cout << "\n ---------------------\n";
+	cout << "\n [1] ceil()";
+	cout << "\n [2] floor()";
+	cout << "\n [3] round()";
+	cout << "\n [4] rand()";
+	cout << "\n ---------------------\n";
+	
+	cout << " Enter your choice: ";
+	cin >> choice;
+	
+	switch (choice)
+	{
+		case 1: 
+		system("cls");
+		    cout << "\n Enter the number to be rounded off: ";
+			cin >> number;
+			cout << "\n Rounded off value is = " << ceil(number);
+			break;
+		case 2:
+		system("cls");
+			cout << "\n Enter the number to be rounded off: ";
+			cin >> number;
+			cout << "\n Rounded off value is = " << floor(number);
+			break;
+		case 3: 
+		system("cls");
+			cout << "\n Enter the number to be rounded off: ";
+			cin >> number;
+			cout << "\n Rounded off value is = " << round(number);
+			break;
+		case 4:
+			system("cls");
+			for (int i = 1; i <= 10; i++ )
+			cout << 1 + rand() % 20 << endl;
+			break;
+		default:
+			cout << "\n Invalid input, dumbass! \n";
+	}
+	
+	cout << "\n ------------------------\n";
+	cout << "\n Continue?";
+	cin >> teleport;
+	
+	if (teleport == 'Y' || teleport == 'y')
+	{
+		main();
+	}else if (teleport == 'N' || teleport == 'n')
+	{
+		exit(1);
+	}
+}
+	return 0;
+	
+}
