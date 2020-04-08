@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cstring> //for string commands and declarations
+#include <cctype> //for commands like tolower, islower, toupper, etc.
+using namespace std;
+
+int main()
+{
+	char str[50];
+	cout << "Enter some string: ";
+	cin.getline(str, 50);
+
+	for (int i = 0; i < 50; i++)            //since hanggang 50 yung storage nung str, dapat <50 since nagstart sa i = 0 yung count
+	{
+		str[0] = toupper(str[0]);          //initiate na capital yung first letter, since di mo siya mapapaupper case sa condition ng if since nagstart sa space yung condition
+		if (str[i] == ' ')                 //if yung loop is currently nasa may space or ' ', then after non, the letter should be capitalized
+			str[i+1] = toupper(str[i+1]);  //dito yung command na i-capitalize siya
+		else
+		str[i+1] = tolower(str[i+1]);     //kapag hindi naman space yung before sa letter na yun, then i-lowercase or stay as lowercase.
+	}
+	cout << str;
+	
+	return 0;
+}
