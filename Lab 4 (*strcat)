@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+void stringCat(char *s1, char *s2);
+
+int main()
+{
+	char str1[20] = "The Happy";
+	char str2[20] = " Man";
+	
+	stringCat(str1,str2);
+	cout << str1 << endl;
+	
+	system ("PAUSE");
+	return 0;
+}
+
+void stringCat(char *s1, char *s2)
+{
+	while(*s1 != '\0') //while si s1 hindi nagpopoint sa null, increment lng ng increment
+	*s1++;
+	while (*s2 != '\0') //so si s2 hanggang sa di pa nagpopoint sa null si s1, tuloy lng rin si s2
+	*s1++ =+ *s2++; //nilipat mo bale yung value ni s1 then add kay s2
+}
