@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+char* stringRev(char *s);
+
+int main() //marks the beginning of a function
+{
+	char str[] = "Happy Day"; //eto yung equal nung str, so may count yan sa [] per element (letter and space)
+	cout << stringRev(str) << "\n"; //yung sa stringRev(str), inapply lang yung function ng str dun sa function ng stringRev, so kung anong elements nung str, yun gagamitin sa stringRev 
+
+	system("PAUSE");
+	return 0;
+}
+
+char* stringRev(char *s) //marks the beginning of a function (yung mismong function na to is a pointer, since char* stringRev)
+{
+	char* tmp; //gawa muna another function
+	tmp = new char; //ilagay yung function sa new character (so maging temporary siya since di pa declared kung san siya located since sa bagong location siya nakalagay)
+	
+	int i, cnt(0); //yung cnt, pang-count yun sa places ng elements sa 'Happy Day'
+
+//this for loop is para lang malagay yung output na Happy Day, para maging familiar lang yung function na to which is stringRev dun sa elements ng str sa int main
+	for (i = 0; *(s+i) != '\0'; i++) //*(s+i) is to combine or connect lng yung s na magpoint sa str dun sa taas
+	{
+		cout << s[i]; //so yung s is pointed nga sa char str, then yung i is pointed sa elements ng str
+		cnt++; //pang count to kung ilan yung elements
+	}
+	cout << endl;
+	
+//eto yung for loop na pang reverse talaga
+	for (i = 0; i <= cnt; i++) //so hanggang hindi equal yung i sa cnt(sa bilang nung elements), tuloy lang sa loop.
+	{
+		tmp[i] = s[cnt - i - 1]; //si tmp is a new char siya, so siya yung saluhan ng elements ng str pero reversed na (siya ang function of reversed string)  
+	//tmp[0] = str[9 - 0 - 1];
+	}
+	return tmp; //the sense of this is to stop the execution and then return to the calling function which is 'tmp'
+}
