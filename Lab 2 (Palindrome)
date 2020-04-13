@@ -1,34 +1,36 @@
 #include <iostream>
-#include <cstring>
+#include <cstring> //used for string functions
 using namespace std;
 
 int main()
 {
 	while(1){
-	char teleport;
-	char str[30];
+	char str[50];
 	int beg, end, length;
 	int condition = 0;
 	
-	cout << "Enter a word: ";
-	cin.getline(str, 30);
-	length = strlen(str);
+	cout << " Enter some string: ";
+	cin.getline(str, 50);
 	
-	for (beg = 0, end = length-1; beg <= length/2; beg++, end--)
+	length = strlen(str); //dito para malaman yung length at dun magbase yung beg and end sa condition ng for loop
+	
+	for (beg = 0, end = length - 1; beg <= length/2; beg++, end--)
+	//initialization: end = length - 1 kasi ex.: racecar, 7 lahat elements so - 1 = 6 since si str[6] ay yung dulo na bc 0 ang start ng str[i]
+	//condition: beg <= length/2 dahil hati yung beg and end for comparison sa isa't isa
+	//operation: kada increment ng beg, bawas naman ang end since for comparison nga, hanggang sa mamag meet na sila sa gitna/half.
 	{
-		if(str[beg] != str[end])
+		if (str[beg] != str[end]) //racecar, same beg and end na 'r', tas loop uli hanggang sa mapunta sa gitna
 		{
-			condition = 1;
+			condition = 1; 
 			break;
 		}
 	}
 	
+	//0 = true/equal, 1 = false/not equal 
 	if (condition == 0)
-	cout << str << " is a palindrome.\n";
+	cout << " The string is a palindrome.\n";
 	else if (condition == 1)
-	cout << str << " is not a palindrome.\n";
-
-}
-	
+	cout << " The string is not a palindrome.\n";
+	}
 	return 0;
 }
