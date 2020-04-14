@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int number[10], checker = 0; //checker for length, number[10] is for the slots of elements
+	int i, j, tmp; //i: connection and at the same time, the distinction of each element. 
+	//j: the number after the current number[i] in the loop
+	
+	cout << "Enter (10) ten numbers: \n";
+	
+	for (i = 0; i < 10; i++)
+	{
+		cin >> number[i];
+		checker++;
+	}
+
+	
+	cout << "\nElement value of array in ascending order: \n";
+	
+	for (i = 0; i < 10; i++)
+	{
+		for (j = i+1; j < checker; j++) //as naglo-loop yung current number[i], nag-aadjust rin yung next number niya.
+		{
+			if (number[i] > number[j])
+			{
+				tmp = number[j];
+				number[j] = number[i];
+				number[i] = tmp; //to swap 2 values
+			}
+		}
+	}
+
+	for (i = 0; i < 10; i++)
+	cout << number[i] << " ";
+		
+	return 0;
+}
