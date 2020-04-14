@@ -2,44 +2,46 @@
 #include <cctype>
 using namespace std;
 
-void reverse()
+int main()
 {
-	char letter[50];
-	int space;
-	string word[50];
+	char letter[50]; //to know the number of letters and elements
+	int space; //to know the spaces para dun mag endl
+	string word[50]; //string na to and by word na yung bilang
 	
 	cout << "Enter a string: ";
-	cin.getline(letter, 50);
+	cin.getline(letter, 50); //dito letter yung ginamit para malaman mo kung ilan yung elements.
 	
-	int i, count = -1, checker = 0;
+	int i, count = 0, checker = 0;
 	
-	for (i = 0; letter[i] != '\0'; i++)
+	for (i = 0; letter[i] != '\0'; i++) //hangga't di null, count lang.
 	{
-		checker++;
+		checker++; //nagstart sa 0 to. dito para malaman lang yung length nung elements
+		//ex. all friend:  10 yung length ng elements, pero 0,1,2,3,4,5,6,7,8,9 ang representation  
 	}
-	for (i = 0; letter[i] != '\0'; i++)
+	
+	for (i = 0; letter[i] != '\0'; i++) //hangga't di null, count lang rin.
 	{
-		count++;
-		if (!isspace(letter[i]) && i < checker)
+		count++; //0 //pang count kung saang element na yung nacocover ng loop para makahelp dun sa string word[50]
+		if (!isspace(letter[i]) && i < checker) //if hindi space yung letter[element], && yung element is less than sa checker (sa length nung letter[i]) 
 		{
-			while(!isspace(letter[i]) && i < checker)
+			while(!isspace(letter[i]) && i < checker) //so eto parang continue lang ganon para connected pa rin mga pumapasok sa loop
+			//kasi if wala while, per elemeng lng ma-reread sa dulo
 			{
-				word[count] = word[count] + letter[i];
-				if(isspace(letter[i]));
-				i++;
+				word[count] += letter[i]; //so add mo yung kung hanggang saan cover nung while then add mo yung letter[3]
+				//since nag iincrement yung i, pero yung count hindi ah!
+				i++; //kaya may ganto, para-mag increment since iikot muna sa while loop hanggang before mag space
 			}
 		}
 		space = count;
+		//count = 2 na because magcount lng yan before ng space.	
 	}
-	space++;
-	for (i = space; i >=0; i--)
+//steps ->  //1     //2    //4
+	for (i = space; i >=0; i--) //ex. all friend
 	{
-		cout << word[i] << "\n";
+	//3
+	cout << word[i] << endl;
+	//friend << endl;
 	}
-}
-
-int main()
-{
-	reverse();
+	
 	return 0;
 }
