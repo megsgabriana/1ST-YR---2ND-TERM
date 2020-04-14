@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+	while(1){
 	int number[10], checker = 0;
 	int i;
 	int max, min;
@@ -60,8 +61,9 @@ int main()
 			min2 = number[i];
 		}
 	}
-	cout << "Second to the lowest: " << min2;
+	cout << "Second to the lowest: " << min2 << "\n\n";
 	
+}
 	
 	return 0;
 }
