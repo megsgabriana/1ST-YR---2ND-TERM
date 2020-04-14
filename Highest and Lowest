@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int number[10], checker = 0;
+	int i, j, tmp;
+	
+	cout << "Enter (10) ten numbers: \n";
+	
+	for (i = 0; i < 10; i++)
+	{
+		cin >> number[i];
+		checker++;
+	}
+
+	
+	//cout << "\nElement value of array in ascending order: \n";
+	
+	for (i = 0; i < 10; i++)
+	{
+		for (j = i+1; j < checker; j++) //as naglo-loop yung current number[i], nag-aadjust rin yung next number niya.
+		{
+			if (number[i] > number[j])
+			{
+				tmp = number[j];
+				number[j] = number[i];
+				number[i] = tmp; //to swap 2 values
+			}
+		}
+	}
+
+	
+	cout << "\nFirst to the highest: ";
+	cout << number[9] << endl;
+	cout << "Second to the highest: ";
+	cout << number[8] << endl;
+	
+	cout << "\nFirst to the lowest: ";
+	cout << number[0] << endl;
+	cout << "Second to the highest: ";
+	cout << number[1] << endl;
+		
+	return 0;
+}
