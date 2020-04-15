@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstring>
+using namespace std; 
+int main ()
+{
+	while(1){
+    int number, binary[30];
+    int i = 0, j = 0;
+    
+    cout << "Enter the decimal value: ";
+    cin >> number; //number mismo
+    
+    cout << "The binary equivalent is: ";
+        while (number != 0)
+        {
+        binary[i] = number % 2;
+        binary[i];
+        number = number/2;
+        i++;
+        j++;
+		}
+    
+	for (j = i - 1; j >= 0; j--)
+    {
+        cout << binary[j];
+	}
+	cout << "\n\n";
+	}
+    
+    return 0;
+}
