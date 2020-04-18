@@ -163,25 +163,17 @@ void addSpec()
 	}
 	
 	cout << "\n--------------------------------------\n";
-	cout << "\n Which # should the element be placed? : ";
+	cout << "\n In which # should the element be placed? : ";
 	cin  >> placeNode;	
 	
 	cout << "\n " << addSpec << " is successfully added!\n";
 	
-	checker += 1;
-		if (i = placeNode - 1)
-		{
+	checker += 1;	 
+	for (i = placeNode - 1; i < checker; i++)
+	{
 		tmp = addSpec;
 		addSpec = number[i];
 		number[i] = tmp;
-		i++;
-		}
-	 
-	for (i = placeNode - 1; i < checker; i++)
-	{
-		tmp = number[i+1];
-		number[i+1] = addSpec;
-		addSpec = tmp;
 	}
 	
 	cout << " |";
@@ -244,16 +236,17 @@ void delSpec()
 	{
 		cout << "\n #" << i+1 << " node: " << number[i];
 	}
-	
+
 	cout << "\n--------------------------------------\n";
 	cout << "\n Which # should the element be deleted? : ";
 	cin  >> placeNode;	
+	
 	checker -= 1;
-	if (i = placeNode - 1)
+	for (i = placeNode - 1; i < checker; i++)
 	{
-		tmp = number[i+1];
-		number[i+1] = number[i];
-		number[i] = tmp;
+		tmp = number[i];
+		number[i] = number[i+1];
+		number[i+1] = tmp;
 	}
 	
 	cout << " The current nodes are: |";
