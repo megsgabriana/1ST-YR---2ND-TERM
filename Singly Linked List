@@ -153,7 +153,7 @@ void addSpec()
 	cout << "--------------------------------------\n";
 	cout << "[2]        ADD AT SPECIFIC NODE       \n";
 	cout << "--------------------------------------\n";
-	cout << "\n Enter the node to be added:  ";
+	cout << "\n Enter the element to be added:  ";
 	cin  >> addSpec;
 	
 	cout << "\n Current node : ";
