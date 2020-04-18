@@ -1,0 +1,327 @@
+#include <iostream>
+using namespace std;
+
+void createList();
+void addBeg();
+void addSpec();
+void delBeg();
+void delEnd();
+void delSpec();
+void reverse();
+void sort();
+void display();
+
+int main()
+{
+	while (1){
+	int choice;
+	char teleport;
+	
+	cout << "-----------------------------------\n";
+	cout << "                MENU               \n";
+	cout << "-----------------------------------\n";
+	cout << "[1] Create a List\n";
+	cout << "[2] Add at the beginning\n";
+	cout << "[3] Add at a specific node\n";
+	cout << "[4] Delete at the beginning\n";
+	cout << "[5] Delete at the end\n";
+	cout << "[6] Delete at a specific node\n";
+	cout << "[7] Reverse\n";
+	cout << "[8] Sort\n";
+	cout << "[9] Display\n";
+	cout << "-----------------------------------\n";
+	cout << "Enter you choice: ";
+	cin  >> choice;
+	cout << "-----------------------------------\n";
+	
+	switch(choice)
+	{
+		case 1:
+			system("cls");
+			createList();
+			break;
+		case 2:
+			system("cls");
+			addBeg();
+			break;
+		case 3:
+			system("cls");
+			addSpec();
+			break;
+		case 4:
+			delBeg();
+			break;
+		case 5:
+			delEnd();
+			break;
+		case 6:
+			system("cls");
+			delSpec();
+			break;
+		case 7:
+			reverse();
+			break;
+		case 8:
+			sort();
+			break;
+		case 9:
+			system("cls");
+			display();
+			break;
+	}
+	
+	cout << "\n\n Go back to menu? (y/n): ";
+	cin >> teleport;
+	
+	if (teleport == 'Y' || teleport == 'y'){
+		system("cls");
+		main();}
+	else if (teleport == 'N' || teleport == 'n')
+		exit(1);
+		
+	}
+	return 0;
+}
+
+int node, placeNode;
+int number[20], checker = 0;
+int i, j, tmp;
+	
+void createList()
+{
+	cout << "------------------------------\n";
+	cout << "[1]        CREATE LIST        \n";
+	cout << "------------------------------\n";
+	
+	cout << "\n How many nodes do you want? ";
+	cin >> node;
+	cout << "------------------------------\n";
+	
+	for (i = 0; i < node; i++)
+	{
+		checker++;
+	}
+	
+	for (i = 0; i < checker; i++)
+	{
+		cout << " Enter #" << i+1 << " node: ";
+		cin >> number[i];
+	}
+	cout << "------------------------------\n";
+	cout << " The current nodes are: ";
+	
+	cout << "|";
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i];
+		cout << "|";
+	}
+}
+
+
+void addBeg()
+{
+	int addBeg;
+	cout << "--------------------------------\n";
+	cout << "[2]        ADD BEGINNING        \n";
+	cout << "--------------------------------\n";
+	cout << "\n Enter the node to be added:  ";
+	cin >> addBeg;
+	
+	cout << " " << addBeg << " is successfully added!\n";
+	cout << "--------------------------------\n";
+	
+	checker += 1;
+	for (i = 0; i < checker; i++)
+	{
+		tmp = addBeg;
+		addBeg = number[i];
+		number[i] = tmp;				
+	}
+	
+	cout << " |";
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i];
+		cout << "|";
+	} 
+}
+
+void addSpec()
+{
+	int addSpec;
+	cout << "--------------------------------------\n";
+	cout << "[2]        ADD AT SPECIFIC NODE       \n";
+	cout << "--------------------------------------\n";
+	cout << "\n Enter the node to be added:  ";
+	cin  >> addSpec;
+	
+	cout << "\n Current node : ";
+	for (i = 0; i < checker; i++)
+	{
+		cout << "\n #" << i+1 << " node: " << number[i];
+	}
+	
+	cout << "\n--------------------------------------\n";
+	cout << "\n Which # should the element be placed? : ";
+	cin  >> placeNode;	
+	
+	cout << "\n " << addSpec << " is successfully added!\n";
+	
+	checker += 1;
+		if (i = placeNode - 1)
+		{
+		tmp = addSpec;
+		addSpec = number[i];
+		number[i] = tmp;
+		i++;
+		}
+	 
+	for (i = placeNode - 1; i < checker; i++)
+	{
+		tmp = number[i+1];
+		number[i+1] = addSpec;
+		addSpec = tmp;
+	}
+	
+	cout << " |";
+	for (i = 0; i < checker; i++)	
+	{
+		cout << number[i] << "|";
+	}
+		
+}
+
+void delBeg()
+{
+	cout << "--------------------------------------\n";
+	cout << "[4]         DELETE AT BEGINNING       \n";
+	cout << "--------------------------------------\n";	
+	
+	cout << " First node: " << number[0] << " is successfully deleted!\n";
+	
+	for (i = 0; i < checker; i++)
+	{
+		tmp = number[i];
+		number[i] = number[i+1];
+		number[i+1] = number[i];
+	}
+	
+	checker -= 1;
+	cout << " |";
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i];
+		cout << "|";
+	}	
+}
+
+void delEnd()
+{
+	cout << "-----------------------------------\n";
+	cout << "[5]       DELETE AT THE END        \n";
+	cout << "-----------------------------------\n";
+	
+	cout << " Last node: " << number[i = checker-1] << " is successfully deleted!\n";
+	
+	checker -=1;
+	cout << " |";
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i];
+		cout << "|";
+	}	
+}
+
+void delSpec()
+{
+	cout << "----------------------------------------\n";
+	cout << "[2]       DELETE A SPECIFIC NODE        \n";
+	cout << "----------------------------------------\n";
+	
+	cout << "\n Current node : ";
+	for (i = 0; i < checker; i++)
+	{
+		cout << "\n #" << i+1 << " node: " << number[i];
+	}
+	
+	cout << "\n--------------------------------------\n";
+	cout << "\n Which # should the element be deleted? : ";
+	cin  >> placeNode;	
+	checker -= 1;
+	if (i = placeNode - 1)
+	{
+		tmp = number[i+1];
+		number[i+1] = number[i];
+		number[i] = tmp;
+	}
+	
+	cout << " The current nodes are: |";
+	for (i = 0; i < checker; i++)	
+	{
+		cout << number[i] << "|";
+	}
+}
+
+void reverse()
+{
+	int newNum[20];
+
+	cout << "\n Unreversed : |";
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i];
+		cout << "|";
+	}
+	
+	cout << "\n Reversed   : |";
+	for (i = 0; i < checker; i++)
+	{
+		tmp = number[i];
+		number[i] = number[i = checker - 1];
+		number[i = checker - 1] = tmp;
+	}
+	
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i] << "|";
+	}
+}
+
+void sort()
+{	
+    cout << " Sorted in Ascending Order: |";
+	
+	for (i = 0; i < checker; i++) 
+	{
+		for (j = i+1; j < checker; j++) 
+		{ 
+			if (number[i] > number[j])
+			{
+			    tmp = number[j];
+			    number[j] = number[i];
+		    	number[i] = tmp;
+			}
+		}				
+	}
+	
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i] << "|";		
+	}
+}
+
+void display()
+{
+	cout << "----------------------------------\n";
+	cout << "[9]         DISPLAY LIST          \n";
+	cout << "----------------------------------\n";
+	
+	cout << " The updated list is: |";
+
+	for (i = 0; i < checker; i++)
+	{
+		cout << number[i];
+		cout << "|";
+	}
+}
