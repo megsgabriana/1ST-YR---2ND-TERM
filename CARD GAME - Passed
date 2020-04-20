@@ -1,0 +1,141 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+    while(1){
+	int choice;
+	int r1,r2,c1,c2;
+	int cards[4][4];
+	char decision;
+
+	cout << "----------------------------\n";
+	cout << " WELCOME TO MEMORY GAME\n";
+	cout << "----------------------------\n\n";
+	cout << " [1] Start\n";
+	cout << " [2] Exit Game\n\n";
+	cout << " Choose one: ";
+	cin >> choice;
+	
+	switch (choice)
+	{
+        case 1:
+		    cout << "----------------------------\n" << endl;
+			cout << " GUIDE BOARD: MEMORIZE THIS! :) \n\n";
+			cout << "   1   2   3   4"  << endl;
+			cout << " ----------------" << endl; //this is to set the guide board
+			
+			//FOR THE GUIDE BOARD
+			for (int row = 0; row < 4; row++) //eto, to initialize yung loop ng row, which is 4 times ang loop kasi 4 ang rows
+			{
+			    for (int col = 0; col < 4; col++) //same goes with column
+				{
+				    cards[row][col] = rand() % 8+1; //simply through rand/srand, so eto every loop mag lagay ng numbers na up to
+					cout<< " | " << cards[row][col];
+				}
+				cout << endl;
+			}
+			
+			cout << "\n Memorized it already? " << endl;
+			cout << " Press ENTER to START\n" << endl;
+			system("pause");
+			system("CLS");
+			
+			cout << "\n   1 2 3 4" << endl;
+			cout << "___________" << endl;
+			
+			//FOR THE HIDDEN VALUES
+			for (int row = 0; row < 4; row++)
+			{
+		        cout << row+1 << " |";
+				for (int col = 0; col < 4; col++)
+				{
+				    cout << "* "; //Lahat asterisk
+				}
+				cout << endl;
+			}
+
+			cout << "\n" << endl;
+			cout << "\nROW OF CARD 1: ";
+			cin >> r1; //para sa first row na i-oopen
+			
+			cout << "COLUMN OF CARD 1: ";
+			cin >> c1; //para sa first column na i-oopen
+			cout << endl;
+			
+			cout << "Matches with...\n\n";
+			cout << "ROW OF CARD 2: ";
+			cin >> r2; //para sa second row na i-oopen
+			
+			cout << "COLUMN OF CARD 2: ";
+			cin >> c2; //para sa second column na i-oopen
+			cout << "\n" << endl;
+			
+			//use decrement since array always starts at 0
+			r1--; //so if row 1 pinili, that is actually row 0
+			c1--;
+			r2--;
+			c2--;
+			
+			//store value of input1 and input2
+			int card1;
+			int card2;
+			cout << " 1 2 3 4" << endl;
+			cout << "_____________" << endl;
+			
+			//TO OPEN THE ROWS AND COLUMNS THAT IS INPUTTED
+			for (int row = 0; row < 4; row++)
+			{
+			    cout<< row+1 << " |";
+				for (int col = 0; col < 4; col++)
+				{
+				    if ((row == r1) && (col == c1)) //so eto para magmatch naman yung row and column na in-input dun sa mismong hidden board
+					{
+					    cout << cards[row][col] <<" ";
+						card1 = cards[row][col]; //pag may pumasok sa condition nung both input, i-cout yung value na yun
+					}
+					else if ((row == r2) && ( col == c2)) //etong if and else if statement na to, palaging may papasok na loop dyan.
+					{
+					    cout << cards[row][col] << " ";
+						card2 = cards[row][col]; //pag may pumasok sa condition nung both input, i-cout yung value na yun
+					}
+					else
+					{
+					cout << "* ";
+					}
+				}
+				cout << endl;
+			}
+			cout << endl; 
+			
+			//match input 1 and input 2
+			if (card1 == card2){ //if equal yung value nung card 1 and card 2, then matched.
+			    cout << "Genius! It Matched!";}
+			else{
+			    cout << "Uh-oh, not Matched!";}
+			    
+			cout << "\n\nWould you like to try again? (y/n): ";
+			cin >> decision;
+			
+			if (decision == 'y' || decision == 'Y'){
+			    system("cls");
+				int main();}
+			else if (decision == 'n' || decision == 'N'){
+			    exit(1);}
+			else
+			    cout << "Invalid Input";
+			
+			break;
+			
+			case 2:
+			    exit(0);
+				break;
+	}
+	
+}
+
+system("PAUSE");
+return 0;
+}
