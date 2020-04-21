@@ -5,11 +5,10 @@ using namespace std;
 int main()
 {
 	int choice;
-	char teleport(3);
+	char teleport;
 	int card[4][4];
 	int r1, r2, c1, c2;
-	int row, column;
-	int card1, card2;
+	int row, column, card1, card2;
 	
 while(1){	
 	cout << "---------------------\n";
