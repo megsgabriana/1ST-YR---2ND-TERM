@@ -1,0 +1,136 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	int choice;
+	char teleport(3);
+	int card[4][4];
+	int r1, r2, c1, c2;
+	int row, column;
+	int card1, card2;
+	
+while(1){	
+	cout << "---------------------\n";
+	cout << "  MAIN MENU         \n";
+	cout << "---------------------\n";
+	
+	cout << " [1] Start Game\n";
+	cout << " [2] Exit\n";
+	cout << "---------------------\n";
+	cout << " Choose one: ";
+	cin  >> choice;
+	cout << "---------------------\n";
+	
+	switch (choice)
+	{
+		case 1:
+			
+			cout << "\n  READY? MEMORIZE THIS!\n\n";
+			cout << "      C1  C2  C3  C4\n";
+			cout << "     ----------------\n";
+			
+			for (row = 0; row < 4; row++)
+			{
+				cout << " R" << row+1 << " |";
+				for (column = 0; column < 4; column++)
+				{
+					card[row][column] = rand() % 8+1;	
+			    	cout << " ";
+			    	cout << card[row][column] << " |";				
+				}
+				cout << "\n     ----------------\n";
+			}
+			cout << endl;
+			
+			system("pause");
+			system("cls");
+			
+			cout << "\n      C1  C2  C3  C4\n";
+			cout << "     ----------------\n";
+			for (row = 0; row < 4; row++)
+			{
+				cout << " R" << row+1 << " |";
+				for (column = 0; column < 4; column++)
+				{
+					cout << " * |";
+				}
+				cout << "\n     ----------------\n";
+			}
+			
+			cout << "\n LOCATE THE NUMBER THAT MATCHES\n";
+			cout << " ------------------------------\n";
+			cout << "\n CARD 1 \n";
+			cout << " Row: ";
+			cin >> r1;
+			cout << " Column: ";
+			cin >> c1;
+			cout << " -----------";
+			cout << "\n CARD 2 \n";
+			cout << " Row: ";
+			cin >> r2;
+			cout << " Column: ";
+			cin >> c2;
+			
+			r1--;
+			c1--;
+			r2--;
+			c2--;
+			
+			cout << "      C1  C2  C3  C4\n";
+			cout << "     ----------------\n";
+			for (row = 0; row < 4; row++)
+			{
+				cout << " R" << row+1 << " |";
+				for (column = 0; column < 4; column++)
+				{
+					if (r1 == row && c1 == column)
+					{
+						cout << " " << card[row][column] << " |";
+						card1 = card[row][column];
+					}else if (r2 == row && c2 == column)
+					{
+						cout << " " << card[row][column] << " |";
+						card2 = card[row][column];
+					}else{
+						cout << " * |";
+					}
+				}				
+				cout << "\n     ----------------\n";
+			}
+			
+			if (card1 == card2)
+			{
+				cout << " Correct! It matched!\n";
+			}else
+			    cout << "\n Wrong, better luck next time! :)\n";
+			    cout << " ------------------------------\n\n\n";
+						    
+			    cout << " Would you like to try again? (y/n): ";
+			    cin  >> teleport;
+			    
+			    if (teleport == 'Y' || teleport == 'y')
+			    {
+			    	system("cls");
+			    	main();
+				}else if (teleport == 'N' || teleport == 'n')
+				{
+					exit(0);
+				}
+		case 2:
+			cout << " Are you sure? (y/n): ";
+			cin >> teleport;
+			
+			if (teleport == 'Y' || teleport == 'y')
+			{
+			    exit(0);
+			}else if (teleport == 'N' || teleport == 'n')
+			{
+				system("cls");
+			    main();;
+			}
+	}
+}
+	return 0;
+}
