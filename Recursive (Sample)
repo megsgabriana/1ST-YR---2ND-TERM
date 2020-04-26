@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int sum (int num)
+{
+	if (num != 0)
+	    return (num + sum(num - 1)); //sum() function calls itself, but nakalagay nga is num - 1
+	else 
+	    return num;
+}
+
+int main()
+{
+	while(1)
+	{
+	    int n;
+	    int total;
+    	cout << "Enter number 'til sum from 1: ";
+    	cin >> n;
+	
+    	total = sum(n);
+    	cout << "Sum of natural numbers from 1 to " << n << " is: " << total << " \n\n";
+	}
+	
+	return 0;
+}
