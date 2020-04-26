@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+
+int sumFibo (int location, int uno, int dos)
+{
+	if (location != 0){
+	    return sumFibo(location - 1, dos, uno + dos);}
+	
+	else{
+		return uno + dos; }
+}
+
+int main()
+{
+	while (1)
+	{
+	    int firstNum, secNum, numLoc, total;
+    	cout << "Enter the 1st Fibonacci number: ";
+        cin >> firstNum;
+    	cout << "Enter the 2nd Fibonacci number: ";
+    	cin >> secNum;
+    	cout << "Enter the position of the desired Fibonacci number: ";
+    	cin >> numLoc;
+    	numLoc -= 3;
+		total = sumFibo(numLoc, firstNum, secNum);
+		cout << "The Fibonacci number at position " << numLoc+3 << " is: " << total << "\n\n";
+	}
+	
+	return 0;
+}
