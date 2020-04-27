@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+void arraysubscript();
+void arrayname();
+void subscriptnotation();
+void offsetnotation();
+
+int main()
+{
+	arraysubscript();
+	arrayname();
+	subscriptnotation();
+	offsetnotation();
+	return 0;
+}
+
+int i;
+int a[] = {8,3,6,2};
+int *cPtr = a;
+
+void arraysubscript()
+{
+	cout << "\n Array subscript notation" << endl;
+	
+	for (i = 0; i < 4; i++)
+	{
+		cout << " a[" << i << "] = " << a[i] << endl;
+	}
+}
+
+void arrayname()
+{
+	int *array = a;
+	cout << "\n Pointer/offset notation where" << endl;
+	cout << " the pointer is the array name" << endl;
+	
+	for (i = 0; i < 4; i++)
+	{
+		cout << " *(a + " << i << ") = " << *(array + i) << endl;
+	}
+}
+
+void subscriptnotation()
+{
+	cout << "\n Pointer subscript notation" << endl;
+	
+	for (i = 0; i < 4; i++)
+	{
+		cout << " cPtr[" << i << "] = " << cPtr[i] << endl;
+	}
+}
+
+void offsetnotation()
+{
+	cout << "\n Pointer/offset notation" << endl;
+	
+	for (i = 0; i < 4; i++)
+	{
+		cout << " *(cPtr + " << i << ") = " << *(cPtr + i) << endl;
+	}
+}
