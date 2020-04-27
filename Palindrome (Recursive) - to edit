@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+bool tester(char str[], int beg, int end);
+
+int main()
+{
+	while(1){
+	char words[50];
+	int first, last;
+	int length;
+	int i;
+	int tmp;
+	
+	cout << "\n Enter some string: ";
+	cin.getline(words, 50);
+	
+	length = strlen(words);
+	
+	first = 0;
+	last = length - 1;
+		
+	for (i = 0; i < length; i++)
+	{
+		if (words[i] == ' ')
+		{
+			words[i+1] = tolower(words[i+1]);
+			while (words[i] != '\0')
+			{
+			    tmp = words[i];
+			    words[i] = words[i+1];
+		    	words[i+1] = tmp;
+		    	i++;
+		    	
+				if (isupper(words[i]))
+		     	{
+		     	    words[i] = tolower(words[i]);
+		    	}
+			}
+	        length -= 1;
+		}
+	}			
+	
+	if (tester(words, first, last))
+	{
+		cout << " " << words << " is a palindrome.\n";
+	}else
+	{
+		cout << " " << words << " is not a palindrome.\n";
+	}
+}
+	return 0;
+}
+
+bool tester(char str[], int beg, int end)
+{
+	
+	if (beg >= end)
+	{
+		return true;
+	}
+	if (str[beg] != str[end])
+	{
+		return false;
+		return tester(str, ++beg, --end);
+	}
+}
