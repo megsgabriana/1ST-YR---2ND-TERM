@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std; 
+
+string convert(int deci)
+{
+    if (deci == 0)
+    {
+		return "0";}
+	else if (deci == 1){
+		return "1";}
+	else{
+		return convert(deci/2) + convert(deci%2);}
+}
+
+int main ()
+{
+	while(1)
+	{
+		int decimal;
+		string binary;
+		int current;
+		cout << "Enter a number in decimal: ";
+		cin >> decimal;
+		
+		binary = convert(decimal);
+		cout << "Decimal " << decimal << " = " << binary << " binary\n\n";
+	}
+    
+    return 0;
+}
